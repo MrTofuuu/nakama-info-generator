@@ -1,0 +1,1 @@
+# nakama-info-generator
