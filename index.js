@@ -2,33 +2,41 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./utils/generateHTML.js');
-
-// prompting user for information
+const questions = {
+        managerName: `What is the manager's name?`,
+        employeeID: `What is the employee's ID?`,
+        email: `What is the employee's email?`,
+        officeNumber: `What is the office number?`,
+        github: `What is the GitHub ID of the engineer?`,
+        school: `What school does the intern attend?`,
+        employeeType: `Would you like to add an engineer, an intern, or finish building your team?`
+    }
+    // prompting user for information
 const promptUser = () => {
     return inquirer.prompt([{
             type: 'input',
-            name: 'title',
-            message: questions.title
+            name: 'managerName',
+            message: questions.managerName
         },
         {
             type: 'input',
-            name: 'description',
-            message: questions.description
+            name: 'managerID',
+            message: questions.employeeID
         },
         {
             type: 'input',
-            name: 'installation',
-            message: questions.installation
+            name: 'managerEmail',
+            message: questions.email
         },
         {
             type: 'input',
-            name: 'usage',
-            message: questions.usage
+            name: 'officeNumber',
+            message: questions.officeNumber
         },
         {
             type: 'confirm',
             name: 'license',
-            message: questions.license,
+            message: questions.employeeType,
             default: false
         },
         {
@@ -39,26 +47,7 @@ const promptUser = () => {
             choices: ['MIT', 'Apache 2.0', 'GNU General Public License v3.0'],
             when: (answers) => answers.license
         },
-        {
-            type: 'input',
-            name: 'contributing',
-            message: questions.contributing
-        },
-        {
-            type: 'input',
-            name: 'tests',
-            message: questions.tests
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: questions.email
-        },
-        {
-            type: 'input',
-            name: 'github',
-            message: questions.github
-        }
+
     ]);
 };
 // function to initialize app
