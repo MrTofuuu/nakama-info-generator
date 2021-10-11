@@ -1,6 +1,10 @@
 const Intern = require('../lib/Intern');
 
 describe('Intern', () => {
+    let intern;
+    beforeEach(() => {
+        intern = new Intern('Monkey D. Luffy', 420, 'monkey@luffy.com', 'Wano University');
+    })
     describe('Initialization', () => {
         it('should create an object with a name, id, and email if provided valid arguments', () => {
             const intern = new Intern('Monkey D. Luffy', 420, 'monkey@luffy.com', 'ThousandSunny');
@@ -73,13 +77,38 @@ describe('Intern', () => {
             expect(cb).toThrowError(err);
         }); // Checking to see if <email> is not a string
 
-        it('should throw an error if <email> is not a string', () => {
+        it('should throw an error if <school> is not a string', () => {
             const cb = () => new Intern('Monkey D. Luffy', 2, 'monkey@luffy.com', 1);
             const err = new Error('Expected parameter <school> to be a non-empty string');
 
             expect(cb).toThrowError(err);
-        }); // Checking to see if <email> is not a string
+        }); // Checking to see if <school> is not a string
 
 
+    });
+    describe('getName', () => {
+        it('should return the employee name', () => {
+            expect(intern.getName()).toEqual('Monkey D. Luffy');
+        })
+    });
+    describe('getId', () => {
+        it('should return the intern id', () => {
+            expect(intern.getId()).toEqual(420);
+        })
+    });
+    describe('getEmail', () => {
+        it('should return the intern email', () => {
+            expect(intern.getEmail()).toEqual('monkey@luffy.com');
+        })
+    });
+    describe('getRole', () => {
+        it('should return the intern role', () => {
+            expect(intern.getRole()).toEqual('Intern');
+        })
+    });
+    describe('getSchool', () => {
+        it('should return the intern school', () => {
+            expect(intern.getSchool()).toEqual('Wano University');
+        })
     });
 })

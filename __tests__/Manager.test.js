@@ -1,14 +1,17 @@
 const Manager = require('../lib/Manager');
 
 describe('Manager', () => {
+    let manager;
+    beforeEach(() => {
+        manager = new Manager('Monkey D. Luffy', 420, 'monkey@luffy.com', 1010);
+    })
     describe('Initialization', () => {
         it('should create an object with a name, id, and email if provided valid arguments', () => {
-            const engineer = new Manager('Monkey D. Luffy', 420, 'monkey@luffy.com', 'ThousandSunny');
 
-            expect(engineer.name).toEqual('Monkey D. Luffy');
-            expect(engineer.id).toEqual(420);
-            expect(engineer.email).toEqual('monkey@luffy.com');
-            expect(engineer.officeNumber).toEqual('ThousandSunny');
+            expect(manager.name).toEqual('Monkey D. Luffy');
+            expect(manager.id).toEqual(420);
+            expect(manager.email).toEqual('monkey@luffy.com');
+            expect(manager.officeNumber).toEqual(1010);
         }); // Initializtion of object check if valid arguments
 
         it('should throw an error if provided no arguments', () => {
@@ -46,7 +49,7 @@ describe('Manager', () => {
             const cb = () => new Manager('Monkey D. Luffy', 420, 'ThousandSunny');
 
             // define the error message that is expected to be thrown
-            const err = new Error('Expected parameter <officeNumber> to be a non-empty string');
+            const err = new Error('Expected parameter <officeNumber> to be a non-negative number');
 
             // Verify that the correct error was thrown when the callback is executed
             expect(cb).toThrowError(err);
@@ -73,13 +76,33 @@ describe('Manager', () => {
             expect(cb).toThrowError(err);
         }); // Checking to see if <email> is not a string
 
-        it('should throw an error if <email> is not a string', () => {
-            const cb = () => new Manager('Monkey D. Luffy', 2, 'monkey@luffy.com', 1);
-            const err = new Error('Expected parameter <officeNumber> to be a non-empty string');
+        it('should throw an error if <officeNumber> is not a number', () => {
+            const cb = () => new Manager('Monkey D. Luffy', 2, 'monkey@luffy.com', '123');
+            const err = new Error('Expected parameter <officeNumber> to be a non-negative number');
 
             expect(cb).toThrowError(err);
-        }); // Checking to see if <email> is not a string
+        }); // Checking to see if <officeNumber> is not a number
 
 
+    });
+    describe('getName', () => {
+        it('should return the employee name', () => {
+            expect(manager.getName()).toEqual('Monkey D. Luffy');
+        })
+    });
+    describe('getId', () => {
+        it('should return the manager id', () => {
+            expect(manager.getId()).toEqual(420);
+        })
+    });
+    describe('getEmail', () => {
+        it('should return the manager email', () => {
+            expect(manager.getEmail()).toEqual('monkey@luffy.com');
+        })
+    });
+    describe('getRole', () => {
+        it('should return the manager role', () => {
+            expect(manager.getRole()).toEqual('Manager');
+        })
     });
 })

@@ -8,7 +8,7 @@ describe('Employee', () => {
     })
     describe('Initialization of Employee', () => {
         it('should create an object with a name, id, and email if provided valid arguments', () => {
-            const employee = new Employee('Monkey D. Luffy', 420, 'monkey@luffy.com');
+            const employee1 = new Employee('Monkey D. Luffy', 420, 'monkey@luffy.com');
 
             expect(employee.name).toEqual('Monkey D. Luffy');
             expect(employee.id).toEqual(420);
@@ -43,7 +43,7 @@ describe('Employee', () => {
 
             // Verify that the correct error was thrown when the callback is executed
             expect(cb).toThrowError(err);
-        }); // Checking to see if only <name> is provided
+        }); // Checking to see if only <name> and <id> is provided
 
         it('should throw an error if <name> is not a string', () => {
             const cb = () => new Employee(5, 2, 'monkey@luffy.com');
@@ -68,5 +68,25 @@ describe('Employee', () => {
 
 
 
+    });
+    describe('getName', () => {
+        it('should return the employee name', () => {
+            expect(employee.getName()).toEqual('Monkey D. Luffy');
+        })
+    });
+    describe('getId', () => {
+        it('should return the employee id', () => {
+            expect(employee.getId()).toEqual(420);
+        })
+    });
+    describe('getEmail', () => {
+        it('should return the employee email', () => {
+            expect(employee.getEmail()).toEqual('monkey@luffy.com');
+        })
+    });
+    describe('getRole', () => {
+        it('should return the employee role', () => {
+            expect(employee.getRole()).toEqual('Employee');
+        })
     });
 });
