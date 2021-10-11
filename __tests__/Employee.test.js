@@ -1,8 +1,12 @@
-const Employee = requrie('../lib/Employee');
+const Employee = require('../lib/Employee');
 
 
 describe('Employee', () => {
-    describe('Initialization', () => {
+    let employee;
+    beforeEach(() => {
+        employee = new Employee('Monkey D. Luffy', 420, 'monkey@luffy.com');
+    })
+    describe('Initialization of Employee', () => {
         it('should create an object with a name, id, and email if provided valid arguments', () => {
             const employee = new Employee('Monkey D. Luffy', 420, 'monkey@luffy.com');
 
@@ -24,7 +28,7 @@ describe('Employee', () => {
             const cb = () => new Employee('Monkey D. Luffy');
 
             // define the error message that is expected to be thrown
-            const err = new Error('The only parameter used is <name>. <id> and <email> parameters are required');
+            const err = new Error('Expected parameter <id> to be a non-negative number');
 
             // Verify that the correct error was thrown when the callback is executed
             expect(cb).toThrowError(err);
@@ -35,7 +39,7 @@ describe('Employee', () => {
             const cb = () => new Employee('Monkey D. Luffy', 420);
 
             // define the error message that is expected to be thrown
-            const err = new Error('The only parameter used is <name> and <id>.<email> parameter is required');
+            const err = new Error('Expected parameter <email> to be a non-empty string');
 
             // Verify that the correct error was thrown when the callback is executed
             expect(cb).toThrowError(err);
@@ -43,24 +47,25 @@ describe('Employee', () => {
 
         it('should throw an error if <name> is not a string', () => {
             const cb = () => new Employee(5, 2, 'monkey@luffy.com');
-            const err = new Error('Expected paramter <name> to be a non-empty string');
+            const err = new Error('Expected parameter <name> to be a non-empty string');
 
             expect(cb).toThrowError(err);
         }); // Checking to see if <name> is not a string
 
         it('should throw an error if <id> is not a number', () => {
             const cb = () => new Employee('Monkey D. Luffy', '2', 'monkey@luffy.com');
-            const err = new Error('Expected paramter <id> to be a number');
+            const err = new Error('Expected parameter <id> to be a non-negative number');
 
             expect(cb).toThrowError(err);
         }); // Checking to see if <id> is not a number
 
         it('should throw an error if <email> is not a string', () => {
             const cb = () => new Employee('Monkey D. Luffy', 2, 1);
-            const err = new Error('Expected paramter <email> to be a non-empty string');
+            const err = new Error('Expected parameter <email> to be a non-empty string');
 
             expect(cb).toThrowError(err);
         }); // Checking to see if <email> is not a string
+
 
 
     });

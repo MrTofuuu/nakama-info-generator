@@ -1,24 +1,27 @@
 {
-  "name": "nakama-info-generator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MrTofuuu/nakama-info-generator.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MrTofuuu/nakama-info-generator/issues"
-  },
-  "homepage": "https://github.com/MrTofuuu/nakama-info-generator#readme",
-  "dependencies": {
-    "inquirer": "^8.1.5",
-    "jest": "^27.2.4"
-  }
+    "name": "nakama-info-generator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --watchAll --verbose"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MrTofuuu/nakama-info-generator.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MrTofuuu/nakama-info-generator/issues"
+    },
+    "homepage": "https://github.com/MrTofuuu/nakama-info-generator#readme",
+    "dependencies": {
+        "inquirer": "^8.1.5",
+        "jest": "^27.2.4"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.0.2"
+    }
 }
