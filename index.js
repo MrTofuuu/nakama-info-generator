@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./utils/generateHTML.js');
+let employeeArr = [];
 const questions = {
         managerName: `What is the manager's name?`,
         employeeID: `What is the employee's ID?`,

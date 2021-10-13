@@ -2,6 +2,24 @@ function generateHTML(data) {
     return ``;
 }
 
+function generate(employeeType, data) {
+    //checks for employee type
+    switch (employeeType) {
+        case 'Manager':
+            generateManager(data);
+            break;
+        case 'Engineer':
+            generateEngineer(data);
+            break;
+        case 'Intern':
+            generateIntern(data);
+            break;
+        default:
+            'Something went wrong Mr Jones'
+    }
+    //call employee type specifc function
+}
+
 function generateManager(data) {
     return `<div class="col s12 m4 l3">
     <div class="card z-depth-5">
