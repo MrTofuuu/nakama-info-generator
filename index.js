@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./utils/generateHTML.js');
 let employeeArr = [];
+let finalHTML = ``;
 const questions = {
         managerName: `What is the manager's name?`,
         employeeID: `What is the employee's ID?`,
@@ -11,8 +12,9 @@ const questions = {
         github: `What is the GitHub ID of the engineer?`,
         school: `What school does the intern attend?`,
         employeeType: `Would you like to add an engineer, an intern, or finish building your team?`
-    }
+};
     // prompting user for information
+
 const promptUser = () => {
     return inquirer.prompt([{
             type: 'input',
@@ -59,6 +61,10 @@ const init = () => {
         .then(() => console.log('Successfully wrote to index.html'))
         .catch((err) => console.error(err));
 };
+// function that renders info
+const render = ()=>{
+
+}
 
 // Function call to initialize app
 init();
