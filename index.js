@@ -6,7 +6,7 @@ const generateHTML = require('./utils/generateHTML.js');
 let employeeArr = [];
 let finalHTML = ``;
 const questions = {
-    managerName: `What is the manager's name?`,
+    name: `What is the employee's name?`,
     employeeID: `What is the employee's ID?`,
     email: `What is the employee's email?`,
     officeNumber: `What is the office number?`,
@@ -18,6 +18,12 @@ const questions = {
 
 const promptUser = () => {
     return inquirer.prompt([{
+            // This question is only asked when the license question is selected as yes
+            type: 'list',
+            name: 'role',
+            message: questions.employeeType,
+            choices: ['Manager', 'Engineer', 'Intern', 'Finished adding teammates']
+        }, {
             type: 'input',
             name: 'managerName',
             message: questions.managerName
@@ -37,13 +43,7 @@ const promptUser = () => {
             name: 'officeNumber',
             message: questions.officeNumber
         },
-        {
-            // This question is only asked when the license question is selected as yes
-            type: 'list',
-            name: 'employees',
-            message: 'What kind of employee do you want to add to the team?',
-            choices: ['Engineer', 'Intern', 'Finished adding teammate']
-        },
+
 
     ]).then((answers) => {
         console.log('')
