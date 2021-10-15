@@ -2,18 +2,19 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./utils/generateHTML.js');
+//storing employee info from prompts
 let employeeArr = [];
 let finalHTML = ``;
 const questions = {
-        managerName: `What is the manager's name?`,
-        employeeID: `What is the employee's ID?`,
-        email: `What is the employee's email?`,
-        officeNumber: `What is the office number?`,
-        github: `What is the GitHub ID of the engineer?`,
-        school: `What school does the intern attend?`,
-        employeeType: `Would you like to add an engineer, an intern, or finish building your team?`
+    managerName: `What is the manager's name?`,
+    employeeID: `What is the employee's ID?`,
+    email: `What is the employee's email?`,
+    officeNumber: `What is the office number?`,
+    github: `What is the GitHub ID of the engineer?`,
+    school: `What school does the intern attend?`,
+    employeeType: `Would you like to add an engineer, an intern, or finish building your team?`
 };
-    // prompting user for information
+// prompting user for information
 
 const promptUser = () => {
     return inquirer.prompt([{
@@ -37,21 +38,16 @@ const promptUser = () => {
             message: questions.officeNumber
         },
         {
-            type: 'confirm',
-            name: 'license',
-            message: questions.employeeType,
-            default: false
-        },
-        {
             // This question is only asked when the license question is selected as yes
             type: 'list',
-            name: 'licenseType',
-            message: 'Which license would you like to use?',
-            choices: ['MIT', 'Apache 2.0', 'GNU General Public License v3.0'],
-            when: (answers) => answers.license
+            name: 'employees',
+            message: 'What kind of employee do you want to add to the team?',
+            choices: ['Engineer', 'Intern', 'Finished adding teammate']
         },
 
-    ]);
+    ]).then((answers) => {
+        console.log('')
+    });
 };
 // function to initialize app
 const init = () => {
@@ -62,7 +58,7 @@ const init = () => {
         .catch((err) => console.error(err));
 };
 // function that renders info
-const render = ()=>{
+const render = () => {
 
 }
 

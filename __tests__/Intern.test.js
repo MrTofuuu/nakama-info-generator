@@ -10,7 +10,7 @@ describe('Intern', () => {
             expect(intern.name).toEqual('Monkey D. Luffy');
             expect(intern.id).toEqual(420);
             expect(intern.email).toEqual('monkey@luffy.com');
-            expect(intern.school).toEqual('ThousandSunny');
+            expect(intern.school).toEqual('Wano University');
         }); // Initializtion of object check if valid arguments
 
         it('should throw an error if provided no arguments', () => {
