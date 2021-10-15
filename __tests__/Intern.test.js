@@ -7,8 +7,6 @@ describe('Intern', () => {
     })
     describe('Initialization', () => {
         it('should create an object with a name, id, and email if provided valid arguments', () => {
-            const intern = new Intern('Monkey D. Luffy', 420, 'monkey@luffy.com', 'ThousandSunny');
-
             expect(intern.name).toEqual('Monkey D. Luffy');
             expect(intern.id).toEqual(420);
             expect(intern.email).toEqual('monkey@luffy.com');

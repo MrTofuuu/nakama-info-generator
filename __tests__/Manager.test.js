@@ -7,7 +7,6 @@ describe('Manager', () => {
     })
     describe('Initialization', () => {
         it('should create an object with a name, id, and email if provided valid arguments', () => {
-
             expect(manager.name).toEqual('Monkey D. Luffy');
             expect(manager.id).toEqual(420);
             expect(manager.email).toEqual('monkey@luffy.com');
