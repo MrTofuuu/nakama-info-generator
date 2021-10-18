@@ -25,15 +25,19 @@ const employeeInit = empArr => {
     internArr = empArr.filter(empArr => empArr.role === 'Intern');
 
     managerArr.forEach(manager => {
-        const managerItem = new Manager(manager.name, manager.id, manager.email, manager.officeNumber);
+        const parsedId = parseInt(manager.id);
+        const parsedOffice = parseInt(manager.officeNumber)
+        const managerItem = new Manager(manager.name, parsedId, manager.email, parsedOffice);
         finalArr.push(managerItem);
     });
     engineerArr.forEach(engineer => {
-        const engineerItem = new Engineer(engineer.name, engineer.id, engineer.email, engineer.github);
+        const parsedId = parseInt(engineer.id);
+        const engineerItem = new Engineer(engineer.name, parsedId, engineer.email, engineer.github);
         finalArr.push(engineerItem);
     });
     internArr.forEach(intern => {
-        const internItem = new Intern(intern.name, intern.id, intern.email, intern.school);
+        const parsedId = parseInt(intern.id);
+        const internItem = new Intern(intern.name, parsedId, intern.email, intern.school);
         finalArr.push(internItem);
     });
 
@@ -49,17 +53,20 @@ const promptUser = () => {
         }, {
             type: 'input',
             name: 'name',
-            message: questions.name
+            message: questions.name,
+            when: (answers) => answers.role !== 'Finished adding teammates'
         },
         {
             type: 'input',
             name: 'id',
-            message: questions.employeeID
+            message: questions.employeeID,
+            when: (answers) => answers.role !== 'Finished adding teammates'
         },
         {
             type: 'input',
             name: 'email',
-            message: questions.email
+            message: questions.email,
+            when: (answers) => answers.role !== 'Finished adding teammates'
         },
         {
             type: 'input',
@@ -84,7 +91,7 @@ const promptUser = () => {
     ]).then((answers) => {
         if (answers.role === 'Finished adding teammates') {
             employeeArr.push(answers);
-            console.log(answers);
+            console.log(employeeArr);
             console.log(`End of Employee Question`);
             employeeInit(employeeArr);
         } else {
@@ -92,7 +99,6 @@ const promptUser = () => {
             console.log(answers);
             console.log(`adding more employees`);
             console.log(employeeArr);
-
             return promptUser();
         }
     });
