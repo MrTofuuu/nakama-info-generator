@@ -3,12 +3,14 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./utils/generateHTML.js');
 const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
 //storing employee info from prompts
 let employeeArr = [];
-let finalArr;
-let managerArr;
-let engineerArr;
-let internArr;
+let finalArr = [];
+let managerArr = [];
+let engineerArr = [];
+let internArr = [];
 const questions = {
     name: `What is the employee's name?`,
     employeeID: `What is the employee's ID?`,
@@ -40,7 +42,7 @@ const employeeInit = empArr => {
         const internItem = new Intern(intern.name, parsedId, intern.email, intern.school);
         finalArr.push(internItem);
     });
-
+    console.log('this is the final array')
     console.log(finalArr);
 };
 const promptUser = () => {
@@ -91,12 +93,13 @@ const promptUser = () => {
     ]).then((answers) => {
         if (answers.role === 'Finished adding teammates') {
             employeeArr.push(answers);
+            console.log('This is the finished employee array prior')
             console.log(employeeArr);
             console.log(`End of Employee Question`);
             employeeInit(employeeArr);
         } else {
             employeeArr.push(answers);
-            console.log(answers);
+            // console.log(answers);
             console.log(`adding more employees`);
             console.log(employeeArr);
             return promptUser();
