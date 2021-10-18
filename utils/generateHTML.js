@@ -2,13 +2,13 @@ function generateManager(data) {
     return `<div class="col s12 m4 l3">
     <div class="card z-depth-5">
         <div class="card-panel red">
-            <h2>${data.name}</h2>
+            <h2>${data.getName()}</h2>
             <h3>${data.getRole()}</h1>
         </div>
         <div class="card-content">
-            <li>ID: ${data.id}</li>
-            <li>Email: mailto: ${data.email}</li>
-            <li>Office number: ${data.officeNumber}</li>
+            <li>ID: ${data.getId()}</li>
+            <li>Email: mailto: ${data.getEmail()}</li>
+            <li>Office number: ${data.getOfficeNumber()}</li>
         </div>
     </div>
 </div>`;
@@ -20,13 +20,13 @@ function generateEngineer(data) {
     return `<div class="col s12 m4 l3">
     <div class="card z-depth-5">
         <div class="card-panel red">
-            <h2>${data.name}</h2>
+            <h2>${data.getName()}</h2>
             <h3>${data.getRole()}</h1>
         </div>
         <div class="card-content">
-            <li>ID: ${data.id}</li>
-            <li>Email: mailto: ${data.email}</li>
-            <li>GitHub: ${data.github}</li>
+            <li>ID: ${data.getId()}</li>
+            <li>Email: mailto: ${data.getEmail()}</li>
+            <li>GitHub: ${data.getGithub()}</li>
         </div>
     </div>
 </div>`;
@@ -36,12 +36,12 @@ function generateIntern(data) {
     return `<div class="col s12 m4 l3">
     <div class="card z-depth-5">
         <div class="card-panel red">
-            <h2>${data.name}</h2>
+            <h2>${data.getName()}</h2>
             <h3>${data.getRole()}</h1>
         </div>
         <div class="card-content">
-            <li>ID: ${data.id}</li>
-            <li>Email: mailto: ${data.email}</li>
+            <li>ID: ${data.getId()}</li>
+            <li>Email: mailto: ${data.getEmail()}</li>
             <li>School: ${data.getSchool()}</li>
         </div>
     </div>
