@@ -1,13 +1,13 @@
 function generateManager(data) {
-    return `<div class="col s12 m4 l3">
+    return `<div class="col s12 m6 l4">
     <div class="card z-depth-5">
         <div class="card-panel red">
             <h2>${data.getName()}</h2>
-            <h3>${data.getRole()}</h1>
+            <h3><i class="small material-icons">insert_face</i>${data.getRole()}</h1>
         </div>
         <div class="card-content">
             <li>ID: ${data.getId()}</li>
-            <li>Email: mailto: ${data.getEmail()}</li>
+            <li>Email: <a href='mailto:${data.getEmail()}'${data.getEmail()}</a></li>
             <li>Office number: ${data.getOfficeNumber()}</li>
         </div>
     </div>
@@ -17,15 +17,15 @@ function generateManager(data) {
 //create a for loop/for each to call the generateEngineer/Interns
 
 function generateEngineer(data) {
-    return `<div class="col s12 m4 l3">
+    return `<div class="col s12 m6 l4">
     <div class="card z-depth-5">
         <div class="card-panel red">
             <h2>${data.getName()}</h2>
-            <h3>${data.getRole()}</h1>
+            <h3><i class="small material-icons">insert_laptop_windows</i>${data.getRole()}</h1>
         </div>
         <div class="card-content">
             <li>ID: ${data.getId()}</li>
-            <li>Email: mailto: ${data.getEmail()}</li>
+            <li>Email: <a href='mailto:${data.getEmail()}'${data.getEmail()}</a></li>
             <li>GitHub: ${data.getGithub()}</li>
         </div>
     </div>
@@ -33,15 +33,15 @@ function generateEngineer(data) {
 };
 
 function generateIntern(data) {
-    return `<div class="col s12 m4 l3">
+    return `<div class="col s12 m6 l4">
     <div class="card z-depth-5">
         <div class="card-panel red">
             <h2>${data.getName()}</h2>
-            <h3>${data.getRole()}</h1>
+            <h3><i class="small material-icons">insert_school</i>${data.getRole()}</h1>
         </div>
         <div class="card-content">
             <li>ID: ${data.getId()}</li>
-            <li>Email: mailto: ${data.getEmail()}</li>
+            <li>Email: <a href='mailto:${data.getEmail()}'${data.getEmail()}</a></li>
             <li>School: ${data.getSchool()}</li>
         </div>
     </div>
@@ -96,6 +96,7 @@ function generateHTML(finalArr) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Compiled and minified CSS -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="styles.css">
         <title>Nakama Info Generator</title>
@@ -105,7 +106,7 @@ function generateHTML(finalArr) {
         <header class='banner valign-wrapper '>
             <h1 class='center-align'>Nakama Info Generator</h1>
         </header>
-        <div class="container">
+        <div class="container row">
         ${generateTeam(finalArr)}
         </div>
 </div>

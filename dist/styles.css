@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #0549a5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.banner {
+    background-color: #ffb300;
+    height: 25vh;
+}
+
+.row {
+    margin-top: 2rem;
+}
