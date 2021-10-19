@@ -44,6 +44,8 @@ const employeeInit = empArr => {
     });
     console.log('this is the final array')
     console.log(finalArr);
+    console.log(finalArr[0].name);
+
 };
 const promptUser = () => {
     return inquirer.prompt([{
@@ -96,6 +98,7 @@ const promptUser = () => {
             console.log('This is the finished employee array prior')
             console.log(employeeArr);
             console.log(`End of Employee Question`);
+            console.log(employeeArr[0]);
             employeeInit(employeeArr);
         } else {
             employeeArr.push(answers);
@@ -111,10 +114,11 @@ const promptUser = () => {
 // function to initialize app
 const init = () => {
     promptUser()
-        .then(console.log("end of init"))
+        // .then(console.log("end of init"))
         // Use writeFileSync method to use promises instead of a callback function
-        .then(fs.writeFileSync('./dist/index.html', generateHTML(finalArr)))
-        .then(() => console.log('Successfully wrote to index.html'))
+        .then((() => fs.writeFileSync('./dist/index.html', generateHTML(finalArr))))
+
+    .then(() => console.log('Successfully wrote to index.html'))
         .catch((err) => console.error(err));
 };
 

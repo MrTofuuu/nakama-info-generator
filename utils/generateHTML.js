@@ -49,30 +49,44 @@ function generateIntern(data) {
 };
 
 function generateTeam(teamArr) {
+    let finalfinalArr;
     //checks for employee type
-    console.log(`genereateTeam ${teamArr}`)
+    console.log(`generateTeam`);
+    console.log(teamArr);
+    let renderArr = [];
     teamArr.forEach(employee => {
-        console.log(`switch statement ${employee}`);
+        console.log(`switch statement`);
+        console.log(employee);
         const role = employee.getRole();
         switch (role) {
             case 'Manager':
-                generateManager(employee);
+                const managerInfo = generateManager(employee);
+                console.log(managerInfo);
+                renderArr.push(managerInfo);
                 break;
             case 'Engineer':
-                generateEngineer(employee);
+                const engineerInfo = generateEngineer(employee);
+                renderArr.push(engineerInfo);
                 break;
             case 'Intern':
-                generateIntern(employee);
+                const internInfo = generateIntern(employee);
+                renderArr.push(internInfo);
                 break;
             default:
                 'Something went wrong Mr Jones'
         }
+        // console.log(renderArr.join(''));
+        finalfinalArr = renderArr.join('');
+        console.log(finalfinalArr);
+
+
     })
 
+    return finalfinalArr;
     //call employee type specifc function
 }
 
-function generateHTML(teamArr) {
+function generateHTML(finalArr) {
     console.log(`generate HTML`)
     return `<!DOCTYPE html>
     <html lang="en">
@@ -92,7 +106,7 @@ function generateHTML(teamArr) {
             <h1 class='center-align'>Nakama Info Generator</h1>
         </header>
         <div class="container">
-        ${generateTeam(teamArr)}
+        ${generateTeam(finalArr)}
         </div>
 </div>
 
