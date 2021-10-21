@@ -61,7 +61,10 @@ node index.js
 
 ## Screenshots and Video Link of application
 
-[Nakama Info Generator](https://watch.screencastify.com/v/hPN8HLMX6imsCC8Rw2kj)
+[Nakama Gen Screenshot](./assets/NakamaGenerator.png)
+
+[Nakama Info Generator Video](https://watch.screencastify.com/v/hPN8HLMX6imsCC8Rw2kj)
+
 
 ### **Links**
 
