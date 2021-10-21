@@ -61,7 +61,7 @@ node index.js
 
 ## Screenshots and Video Link of application
 
-[Nakama Info Generator](https://drive.google.com/file/d/1N_N1Q_u7RCARwe3XeK8R_wD8nAlaHnD6/view?usp=sharing)
+[Nakama Info Generator](https://watch.screencastify.com/v/hPN8HLMX6imsCC8Rw2kj)
 
 ### **Links**
 
