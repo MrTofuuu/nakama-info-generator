@@ -63,7 +63,7 @@ node index.js
 
 [Nakama Gen Screenshot](./assets/NakamaGenerator.png)
 
-[Nakama Info Generator Video](https://watch.screencastify.com/v/hPN8HLMX6imsCC8Rw2kj)
+[Nakama Info Generator Video](https://watch.screencastify.com/v/bOJB3IR0JqlP8rRFQQaQ)
 
 
 ### **Links**
